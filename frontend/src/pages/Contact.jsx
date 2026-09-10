@@ -20,7 +20,7 @@ const Contact = () => {
     try {
       const res = await api.post('/contact', form);
       setStatus({ type: 'success', message: res.data.message });
-      setForm({ name: '', email: '', message: '' }); // Reset form
+      setForm({ name: '', email: '', message: '' });
     } catch (err) {
       setStatus({ type: 'error', message: err.response?.data?.message || 'Something went wrong' });
     } finally {
@@ -30,7 +30,6 @@ const Contact = () => {
 
   return (
     <div>
-      {/* Page Header */}
       <div
         className="page-header"
         style={{
@@ -47,7 +46,6 @@ const Contact = () => {
       <section className="section">
         <div className="container">
           <div className="contact-grid">
-            {/* Contact Info */}
             <div className="contact-info">
               <h3>Get In Touch</h3>
 
@@ -81,7 +79,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Google Maps Embed — replace src with your actual location */}
               <div className="map-embed">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.103!2d72.8328!3d18.9220!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c73a0becd9%3A0xd1f5b0f2e9a0f5c0!2sColaba%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -92,7 +89,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
             <div>
               <div className="form-container" style={{ margin: 0, boxShadow: 'none', padding: '0' }}>
                 <h3 style={{ color: 'var(--primary)', marginBottom: '24px', fontSize: '1.4rem' }}>Send a Message</h3>

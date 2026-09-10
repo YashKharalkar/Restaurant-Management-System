@@ -8,14 +8,12 @@ import DishCard from '../components/DishCard';
 const Home = () => {
   const [featured, setFeatured] = useState([]);
 
-  // Fetch first 3 menu items to show as "featured dishes"
   useEffect(() => {
     api.get('/menu').then((res) => setFeatured(res.data.slice(0, 3))).catch(() => {});
   }, []);
 
   return (
     <div>
-      {/* Hero Section */}
       <section
         className="hero"
         style={{
@@ -34,7 +32,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Dishes */}
       <section className="section" style={{ backgroundColor: '#f5f9fb' }}>
         <div className="container">
           <h2 className="section-title">
@@ -61,7 +58,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Info Strip */}
       <section className="section">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', textAlign: 'center' }}>

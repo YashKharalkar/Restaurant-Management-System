@@ -1,7 +1,6 @@
 const mysql = require('mysql2');
 require('dotenv').config();
 
-// Create a connection pool (better than single connection — handles multiple requests)
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -11,5 +10,4 @@ const pool = mysql.createPool({
   connectionLimit: 10,
 });
 
-// Export the promise-based version so we can use async/await
 module.exports = pool.promise();

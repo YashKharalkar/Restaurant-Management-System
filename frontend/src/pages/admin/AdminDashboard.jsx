@@ -32,7 +32,7 @@ const AdminDashboard = () => {
     try {
       await api.delete(`/admin/menu/${id}`);
       setDeleteMsg(`"${name}" deleted successfully.`);
-      fetchItems(); // Refresh list
+      fetchItems();
       setTimeout(() => setDeleteMsg(''), 3000);
     } catch {
       alert('Failed to delete item.');
@@ -46,7 +46,6 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      {/* Admin Header */}
       <div className="admin-header">
         <h2>
           <FontAwesomeIcon icon={faUtensils} style={{ marginRight: '10px' }} />
@@ -73,7 +72,7 @@ const AdminDashboard = () => {
         {loading ? (
           <p className="spinner">Loading...</p>
         ) : items.length === 0 ? (
-          <p className="no-results"><p>No menu items found. Add your first item!</p></p>
+          <div className="no-results"><p>No menu items found. Add your first item!</p></div>
         ) : (
           <table className="admin-table">
             <thead>

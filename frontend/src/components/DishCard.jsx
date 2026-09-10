@@ -5,7 +5,6 @@ import { useCart } from '../context/CartContext';
 const DishCard = ({ item }) => {
   const { cartItems, addToCart, updateQty } = useCart();
 
-  // Support both external URLs (Unsplash) and local backend uploads
   const imageUrl = item.image_url
     ? item.image_url.startsWith('http')
       ? item.image_url

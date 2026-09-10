@@ -3,7 +3,6 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Multer — save uploaded images to /uploads folder
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = path.join(__dirname, '../uploads');
@@ -24,7 +23,6 @@ const upload = multer({
   },
 });
 
-// GET /api/admin/menu
 const getAllMenuItems = async (req, res) => {
   try {
     const [items] = await db.query('SELECT * FROM menu_items ORDER BY id DESC');
@@ -34,7 +32,6 @@ const getAllMenuItems = async (req, res) => {
   }
 };
 
-// POST /api/admin/menu
 const addMenuItem = async (req, res) => {
   const { name, category, description, price } = req.body;
 
@@ -54,7 +51,6 @@ const addMenuItem = async (req, res) => {
   }
 };
 
-// PUT /api/admin/menu/:id
 const updateMenuItem = async (req, res) => {
   const { name, category, description, price } = req.body;
   const { id } = req.params;
@@ -77,7 +73,6 @@ const updateMenuItem = async (req, res) => {
   }
 };
 
-// DELETE /api/admin/menu/:id
 const deleteMenuItem = async (req, res) => {
   const { id } = req.params;
 

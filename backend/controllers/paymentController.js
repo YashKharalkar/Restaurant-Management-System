@@ -7,7 +7,6 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// POST /api/payment/create-order
 const createOrder = async (req, res) => {
   const { amount } = req.body;
 
@@ -16,7 +15,7 @@ const createOrder = async (req, res) => {
 
   try {
     const order = await razorpay.orders.create({
-      amount: Math.round(amount * 100), // paise
+      amount: Math.round(amount * 100),
       currency: 'INR',
       receipt: `receipt_${Date.now()}`,
     });
@@ -32,7 +31,6 @@ const createOrder = async (req, res) => {
   }
 };
 
-// POST /api/payment/verify
 const verifyPayment = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
 

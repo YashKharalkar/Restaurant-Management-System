@@ -1,6 +1,5 @@
 const db = require('../config/db');
 
-// GET /api/menu?search=keyword
 const getAllItems = async (req, res) => {
   const { search } = req.query;
   try {
@@ -15,7 +14,6 @@ const getAllItems = async (req, res) => {
   }
 };
 
-// GET /api/menu/:id
 const getItemById = async (req, res) => {
   try {
     const [items] = await db.query('SELECT * FROM menu_items WHERE id = ?', [req.params.id]);

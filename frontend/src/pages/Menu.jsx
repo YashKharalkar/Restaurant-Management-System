@@ -10,7 +10,6 @@ const Menu = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Fetch menu items whenever the search term changes
   useEffect(() => {
     setLoading(true);
     api.get(`/menu?search=${search}`)
@@ -21,7 +20,6 @@ const Menu = () => {
 
   return (
     <div>
-      {/* Page Header */}
       <div
         className="page-header"
         style={{
@@ -37,10 +35,8 @@ const Menu = () => {
 
       <section className="section">
         <div className="container">
-          {/* Search Bar */}
           <SearchBar value={search} onChange={setSearch} placeholder="Search dishes by name..." />
 
-          {/* Results */}
           {loading ? (
             <p className="spinner">Loading menu...</p>
           ) : items.length > 0 ? (

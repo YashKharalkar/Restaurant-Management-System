@@ -8,7 +8,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Brand */}
           <div>
             <div className="navbar-logo" style={{ marginBottom: '14px' }}>
               <FontAwesomeIcon icon={faUtensils} />
@@ -30,7 +29,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-links">
@@ -41,7 +39,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="footer-title">Contact Us</h4>
             <div className="footer-contact-item">

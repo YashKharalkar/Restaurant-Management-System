@@ -1,6 +1,5 @@
 const db = require('../config/db');
 
-// POST /api/contact
 const saveContact = async (req, res) => {
   const { name, email, message } = req.body;
 

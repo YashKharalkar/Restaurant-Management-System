@@ -61,7 +61,6 @@ const Cart = () => {
     }
   };
 
-  // Empty cart state
   if (cartItems.length === 0 && status !== 'success') {
     return (
       <section className="section" style={{ backgroundColor: '#f5f9fb', minHeight: '80vh' }}>
@@ -84,8 +83,6 @@ const Cart = () => {
   return (
     <section className="section" style={{ backgroundColor: '#f5f9fb', minHeight: '80vh' }}>
       <div className="container">
-
-        {/* Page Title */}
         <div className="cart-page-header">
           <h1><FontAwesomeIcon icon={faShoppingCart} /> Your Cart</h1>
           <Link to="/menu" className="btn btn-outline" style={{ fontSize: '0.85rem', padding: '8px 18px' }}>
@@ -93,7 +90,6 @@ const Cart = () => {
           </Link>
         </div>
 
-        {/* Success/Error alerts */}
         {status === 'success' && (
           <div className="alert alert-success" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '30px' }}>
             <FontAwesomeIcon icon={faCheckCircle} /> {message}
@@ -106,8 +102,6 @@ const Cart = () => {
         )}
 
         <div className="cart-layout">
-
-          {/* ── Cart Items List ── */}
           <div className="cart-items-panel">
             <div className="cart-items-header">
               <span>{cartItems.reduce((s, i) => s + i.qty, 0)} item(s) in cart</span>
@@ -141,7 +135,6 @@ const Cart = () => {
             ))}
           </div>
 
-          {/* ── Order Summary + Payment ── */}
           <div className="cart-summary-panel">
             <h3 className="summary-title">Order Summary</h3>
 
@@ -180,7 +173,6 @@ const Cart = () => {
               <p className="payment-note">Powered by Razorpay · 100% Secure</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>

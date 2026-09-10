@@ -17,7 +17,6 @@ const AddMenuItem = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImage(file);
-    // Show a local preview of the selected image
     if (file) setPreview(URL.createObjectURL(file));
   };
 
@@ -31,7 +30,6 @@ const AddMenuItem = () => {
 
     setLoading(true);
     try {
-      // Use FormData because we're sending an image file
       const formData = new FormData();
       formData.append('name', form.name);
       formData.append('category', form.category);

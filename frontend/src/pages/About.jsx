@@ -17,7 +17,6 @@ const About = () => {
 
   return (
     <div>
-      {/* Page Header */}
       <div
         className="page-header"
         style={{
@@ -31,7 +30,6 @@ const About = () => {
         <p>Our story, our values, and our promise to you</p>
       </div>
 
-      {/* Story Section */}
       <section className="section">
         <div className="container">
           <div className="about-grid">
@@ -65,7 +63,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Opening Timings */}
       <section className="section" style={{ backgroundColor: '#f5f9fb' }}>
         <div className="container">
           <h2 className="section-title">Opening Hours</h2>
@@ -81,7 +78,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Values */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">Our Values</h2>

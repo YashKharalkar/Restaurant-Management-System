@@ -11,7 +11,6 @@ const Signup = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  // Already logged in → redirect to menu
   if (user) return <Navigate to="/menu" replace />;
 
   const handleSubmit = async (e) => {
@@ -33,7 +32,7 @@ const Signup = () => {
         password: form.password,
       });
       setSuccess(res.data.message);
-      setTimeout(() => navigate('/login'), 2000); // Redirect to login after 2s
+      setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');
     } finally {

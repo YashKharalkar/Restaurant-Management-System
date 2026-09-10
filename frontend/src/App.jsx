@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 
-// Pages
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import About from './pages/About';
@@ -14,7 +13,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Payment from './pages/Payment';
 
-// Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AddMenuItem from './pages/admin/AddMenuItem';
@@ -35,7 +33,6 @@ const App = () => {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Admin Routes (no Navbar/Footer) */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin/dashboard"
@@ -50,11 +47,9 @@ const App = () => {
             element={<ProtectedRoute role="admin"><EditMenuItem /></ProtectedRoute>}
           />
 
-          {/* Auth Routes (no Navbar, minimal Footer) */}
           <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
           <Route path="/signup" element={<AuthLayout><Signup /></AuthLayout>} />
 
-          {/* Public/Protected Routes (with Navbar + Full Footer) */}
           <Route
             path="/*"
             element={
@@ -66,7 +61,6 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     
-                    {/* Protected Core Routes */}
                     <Route path="/menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} />
                     <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
                   </Routes>

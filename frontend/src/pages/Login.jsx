@@ -12,7 +12,6 @@ const Login = () => {
   const { login, user } = useAuth();
   const navigate = useNavigate();
 
-  // Already logged in → redirect to menu
   if (user) return <Navigate to="/menu" replace />;
 
   const handleSubmit = async (e) => {
@@ -22,8 +21,7 @@ const Login = () => {
 
     try {
       const res = await api.post('/auth/login', form);
-      login(res.data.user, res.data.token); // Save to context + localStorage
-      // Redirect based on role
+      login(res.data.user, res.data.token);
       navigate(res.data.user.role === 'admin' ? '/admin/dashboard' : '/menu');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');

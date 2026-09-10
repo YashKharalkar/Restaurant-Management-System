@@ -1,12 +1,6 @@
--- ==========================================================
--- Restaurant Website Database Schema
--- Run this file in MySQL to set up all required tables
--- ==========================================================
-
 CREATE DATABASE IF NOT EXISTS restaurant_db;
 USE restaurant_db;
 
--- Users table (customers and admins)
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -16,7 +10,6 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Menu items table
 CREATE TABLE IF NOT EXISTS menu_items (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(150) NOT NULL,
@@ -27,7 +20,6 @@ CREATE TABLE IF NOT EXISTS menu_items (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Contact form submissions
 CREATE TABLE IF NOT EXISTS contacts (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -36,7 +28,6 @@ CREATE TABLE IF NOT EXISTS contacts (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Payment records
 CREATE TABLE IF NOT EXISTS payments (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -48,11 +39,6 @@ CREATE TABLE IF NOT EXISTS payments (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
 
--- ==========================================================
--- Seed: Default Admin User
--- Password: admin123 (bcrypt hash below)
--- CHANGE THIS PASSWORD AFTER FIRST LOGIN!
--- ==========================================================
 INSERT INTO users (name, email, password, role)
 VALUES (
   'Admin',
@@ -61,9 +47,6 @@ VALUES (
   'admin'
 );
 
--- ==========================================================
--- Seed: Sample Menu Items
--- ==========================================================
 INSERT INTO menu_items (name, category, description, price, image_url) VALUES
 ('Grilled Salmon', 'Mains', 'Fresh Atlantic salmon fillet grilled to perfection with lemon butter sauce.', 450.00, NULL),
 ('Margherita Pizza', 'Mains', 'Classic pizza with tomato sauce, mozzarella cheese, and fresh basil.', 320.00, NULL),

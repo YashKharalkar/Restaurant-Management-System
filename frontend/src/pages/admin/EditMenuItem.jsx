@@ -17,7 +17,6 @@ const EditMenuItem = () => {
   const [fetching, setFetching] = useState(true);
   const navigate = useNavigate();
 
-  // Load existing item data
   useEffect(() => {
     api.get(`/menu/${id}`)
       .then((res) => {
@@ -127,7 +126,6 @@ const EditMenuItem = () => {
 
             <div className="form-group">
               <label>Food Image</label>
-              {/* Show current image if it exists */}
               {currentImage && !preview && (
                 <div style={{ marginBottom: '10px' }}>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-gray)', marginBottom: '6px' }}>Current image:</p>
