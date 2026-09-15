@@ -16,7 +16,6 @@ import MyOrders from './pages/MyOrders';
 import BookTable from './pages/BookTable';
 import MyReservations from './pages/MyReservations';
 
-import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AddMenuItem from './pages/admin/AddMenuItem';
 import EditMenuItem from './pages/admin/EditMenuItem';
