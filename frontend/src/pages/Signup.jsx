@@ -45,7 +45,7 @@ const Signup = () => {
       <div className="container">
         <div className="form-container">
           <h2 className="form-title">Create Account</h2>
-          <p className="form-subtitle">Join us and enjoy exclusive benefits</p>
+          <p className="form-subtitle">Join us and enjoy exclusive dining benefits</p>
 
           {error && <div className="alert alert-error">{error}</div>}
           {success && <div className="alert alert-success">{success}</div>}
@@ -57,7 +57,7 @@ const Signup = () => {
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="John Doe"
+                placeholder="Rahul Sharma"
                 required
               />
             </div>
@@ -67,7 +67,7 @@ const Signup = () => {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="john@example.com"
+                placeholder="rahul.sharma@example.com"
                 required
               />
             </div>

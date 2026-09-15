@@ -12,6 +12,9 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Payment from './pages/Payment';
+import MyOrders from './pages/MyOrders';
+import BookTable from './pages/BookTable';
+import MyReservations from './pages/MyReservations';
 
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -30,50 +33,55 @@ const AuthLayout = ({ children }) => (
 const App = () => {
   return (
     <CartProvider>
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route
-            path="/admin/dashboard"
-            element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>}
-          />
-          <Route
-            path="/admin/add"
-            element={<ProtectedRoute role="admin"><AddMenuItem /></ProtectedRoute>}
-          />
-          <Route
-            path="/admin/edit/:id"
-            element={<ProtectedRoute role="admin"><EditMenuItem /></ProtectedRoute>}
-          />
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/admin/login" element={<AuthLayout><Login /></AuthLayout>} />
+            <Route
+              path="/admin/dashboard"
+              element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>}
+            />
+            <Route
+              path="/admin/add"
+              element={<ProtectedRoute role="admin"><AddMenuItem /></ProtectedRoute>}
+            />
+            <Route
+              path="/admin/edit/:id"
+              element={<ProtectedRoute role="admin"><EditMenuItem /></ProtectedRoute>}
+            />
 
-          <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
-          <Route path="/signup" element={<AuthLayout><Signup /></AuthLayout>} />
+            <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
+            <Route path="/signup" element={<AuthLayout><Signup /></AuthLayout>} />
 
-          <Route
-            path="/*"
-            element={
-              <>
-                <Navbar />
-                <main>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                    
-                    <Route path="/menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} />
-                    <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
-                  </Routes>
-                </main>
-                <Footer />
-              </>
-            }
-          />
-        </Routes>
-      </Router>
-    </AuthProvider>
+            <Route
+              path="/*"
+              element={
+                <>
+                  <Navbar />
+                  <main>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/menu" element={<Menu />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/book-table" element={<BookTable />} />
+                      
+                      <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+                      <Route path="/orders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
+                      <Route path="/my-reservations" element={<ProtectedRoute><MyReservations /></ProtectedRoute>} />
+
+                    </Routes>
+                  </main>
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
+        </Router>
+      </AuthProvider>
     </CartProvider>
   );
 };
 
 export default App;
+

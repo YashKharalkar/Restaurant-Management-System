@@ -22,9 +22,9 @@ const Login = () => {
     try {
       const res = await api.post('/auth/login', form);
       login(res.data.user, res.data.token);
-      navigate(res.data.user.role === 'admin' ? '/admin/dashboard' : '/menu');
+      navigate('/menu');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please try again.');
+      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
@@ -34,7 +34,7 @@ const Login = () => {
     <section className="section" style={{ backgroundColor: '#f5f9fb', minHeight: '80vh' }}>
       <div className="container">
         <div className="form-container">
-          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
             <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'var(--accent-light)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <FontAwesomeIcon icon={faUser} style={{ fontSize: '1.4rem', color: 'var(--primary)' }} />
             </div>
@@ -51,7 +51,7 @@ const Login = () => {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="you@example.com"
+                placeholder="Enter your email"
                 required
               />
             </div>

@@ -23,9 +23,9 @@ const AdminLogin = () => {
         return setError('This account does not have admin access.');
       }
       login(res.data.user, res.data.token);
-      navigate('/admin/dashboard');
+      navigate('/menu');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
@@ -35,7 +35,7 @@ const AdminLogin = () => {
     <section className="section" style={{ backgroundColor: '#f5f9fb', minHeight: '100vh' }}>
       <div className="container">
         <div className="form-container">
-          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
             <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'var(--primary)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <FontAwesomeIcon icon={faUserShield} style={{ fontSize: '1.6rem', color: '#fff' }} />
             </div>

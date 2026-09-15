@@ -93,4 +93,24 @@ const deleteMenuItem = async (req, res) => {
   }
 };
 
-module.exports = { upload, getAllMenuItems, addMenuItem, updateMenuItem, deleteMenuItem };
+const getContacts = async (req, res) => {
+  try {
+    const [contacts] = await db.query('SELECT * FROM contacts ORDER BY id DESC');
+    res.json(contacts);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+const deleteContact = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await db.query('DELETE FROM contacts WHERE id = ?', [id]);
+    res.json({ message: 'Contact message deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+module.exports = { upload, getAllMenuItems, addMenuItem, updateMenuItem, deleteMenuItem, getContacts, deleteContact };
+

@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faArrowRight, faClock, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar,
+  faArrowRight,
+  faClock,
+  faMapMarkerAlt,
+  faPhone,
+  faCalendarAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import api from '../api/axios';
 import DishCard from '../components/DishCard';
 
@@ -26,9 +33,14 @@ const Home = () => {
         <div className="container">
           <h1>🍽️ Welcome to The Grand Table</h1>
           <p>Experience the finest flavors crafted with passion, fresh ingredients, and love.</p>
-          <Link to="/menu" className="btn btn-white">
-            Explore Our Menu &nbsp;<FontAwesomeIcon icon={faArrowRight} />
-          </Link>
+          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '20px' }}>
+            <Link to="/menu" className="btn btn-white">
+              Explore Menu &nbsp;<FontAwesomeIcon icon={faArrowRight} />
+            </Link>
+            <Link to="/book-table" className="btn btn-outline" style={{ borderColor: '#fff', color: '#fff' }}>
+              <FontAwesomeIcon icon={faCalendarAlt} /> Book a Table
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -64,7 +76,7 @@ const Home = () => {
             {[
               { icon: faClock, label: 'Open Daily', value: '11 AM – 11 PM' },
               { icon: faMapMarkerAlt, label: 'Location', value: '123 Main Street, Mumbai' },
-              { icon: faPhone, label: 'Reservations', value: '+91 98765 43210' },
+              { icon: faPhone, label: 'Reservations & Orders', value: '+91 98765 43210' },
             ].map((info) => (
               <div key={info.label} className="timing-card">
                 <div style={{ fontSize: '2rem', marginBottom: '8px', color: 'var(--primary)' }}>

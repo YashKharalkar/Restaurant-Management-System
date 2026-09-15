@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faPlus, faMinus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 const DishCard = ({ item }) => {
   const { cartItems, addToCart, updateQty } = useCart();
+  const { user } = useAuth();
+
+  const isAdmin = user?.role === 'admin';
 
   const imageUrl = item.image_url
     ? item.image_url.startsWith('http')
@@ -32,20 +36,22 @@ const DishCard = ({ item }) => {
         <div className="card-footer">
           <p className="card-price">₹{Number(item.price).toFixed(2)}</p>
 
-          {qty === 0 ? (
-            <button className="btn-add-cart" onClick={() => addToCart(item)}>
-              <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-            </button>
-          ) : (
-            <div className="qty-control">
-              <button className="qty-btn" onClick={() => updateQty(item.id, qty - 1)}>
-                <FontAwesomeIcon icon={faMinus} />
+          {!isAdmin && (
+            qty === 0 ? (
+              <button className="btn-add-cart" onClick={() => addToCart(item)}>
+                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
               </button>
-              <span className="qty-value">{qty}</span>
-              <button className="qty-btn" onClick={() => updateQty(item.id, qty + 1)}>
-                <FontAwesomeIcon icon={faPlus} />
-              </button>
-            </div>
+            ) : (
+              <div className="qty-control">
+                <button className="qty-btn" onClick={() => updateQty(item.id, qty - 1)}>
+                  <FontAwesomeIcon icon={faMinus} />
+                </button>
+                <span className="qty-value">{qty}</span>
+                <button className="qty-btn" onClick={() => updateQty(item.id, qty + 1)}>
+                  <FontAwesomeIcon icon={faPlus} />
+                </button>
+              </div>
+            )
           )}
         </div>
       </div>

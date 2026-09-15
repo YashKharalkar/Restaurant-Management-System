@@ -50,16 +50,28 @@ const AddMenuItem = () => {
   };
 
   return (
-    <div>
-      <div className="admin-header">
-        <h2>Add New Menu Item</h2>
-        <Link to="/admin/dashboard" className="btn btn-outline" style={{ borderColor: '#fff', color: '#fff' }}>
-          <FontAwesomeIcon icon={faArrowLeft} /> Back
-        </Link>
-      </div>
+    <div style={{ backgroundColor: '#f5f9fb', minHeight: '90vh', padding: '30px 0' }}>
+      <div className="container" style={{ maxWidth: '650px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+          <button
+            type="button"
+            className="admin-back-btn"
+            onClick={() => navigate('/admin/dashboard')}
+            title="Back to Admin Management"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+          <div>
+            <h1 style={{ fontSize: '1.8rem', color: 'var(--primary)', margin: 0, fontWeight: 700 }}>
+              Add New Menu Item
+            </h1>
+            <p style={{ color: 'var(--text-gray)', fontSize: '0.9rem', margin: '4px 0 0 0' }}>
+              Create a new dish or beverage for the restaurant menu.
+            </p>
+          </div>
+        </div>
 
-      <div className="admin-body" style={{ maxWidth: '600px' }}>
-        <div className="form-container" style={{ margin: 0 }}>
+        <div className="card" style={{ padding: '30px', background: '#fff' }}>
           {error && <div className="alert alert-error">{error}</div>}
 
           <form onSubmit={handleSubmit}>
